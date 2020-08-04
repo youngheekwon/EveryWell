@@ -1,0 +1,33 @@
+<h3>User list</h3>
+
+<form action="/search">
+  <input type="text" name="q">
+  <button type="submit">Search</button>
+</form>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>UserName</th>
+      <th>FriendCount</th>
+      <th>ShortenUrl</th>
+      <th>WebsiteHeadings</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user|  %>
+      <% if user != current_user %>
+        <tr>
+          <td><strong><%=h user.username %></strong></td>
+          <td><%= user.friends.count %></td>
+          <td><%= shortenUrl(user.web_url) %></td>
+          <td><%= website_heading %></td>
+          <td><%= link_to "Add Friend", friendships_path(:friend_id => user ), :method => :post  %></td>
+        </tr>  
+      <% end%>
+      <% end %>
+    </tbody>
+  </table>

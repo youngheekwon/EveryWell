@@ -1,0 +1,38 @@
+<p>Username: <%=h @user.username %></p>
+
+<h2>Website URL </h2>
+<p><%= @user.web_url %></p>
+
+<h2>Shorten Website URL </h2>
+<p><%= shortenUrl(@user.web_url) %></p>
+
+
+<h2>Friends</h2>
+
+<% if @user.friendships.length > 0 %>
+<ul>
+  <% for friendship in @user.friendships%>
+    <%= h friendship.friend.username %>
+    (<%= link_to 'remove', friendship, :method => :delete %>)
+  <% end %>
+</ul>
+ <% else %>
+  <p>No firend yet ..</p>
+  <% end%>
+
+<h2>Friended by Other Users</h2>
+
+<% if @user.inverse_friends.length > 0 %>
+<ul>
+  <% for user in @user.inverse_friends %>
+    <li><%=h user.username %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>Not friend by others yet ..</p>
+  <% end%>
+
+<p><%= link_to "Back to Friends List", users_path %></p>
+
+
+
