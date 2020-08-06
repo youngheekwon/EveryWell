@@ -15,7 +15,7 @@
         <% if current_user %>
           Logged in as <%= current_user.username %>
           <%= link_to 'Log Out', logout_path %>
-          <%= link_to 'View Profile', user_path(:current) %>
+          <%= link_to 'View Profile', user_path(current_user) %>
         <% else %>
           <%= link_to 'SignUp', new_user_path %>
           <%= link_to 'Log In', new_session_path %>

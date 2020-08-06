@@ -21,7 +21,7 @@
           <td><%= user.friends.count %></td>
           <td><%= shortenUrl(user.web_url) %></td>
           <td><%= website_heading %></td>
-          <td><%= link_to "profile", user_path(user.id) %></td>
+          <td><%= link_to "profile", user_path(user) %></td>
           <td><%= link_to "Add Friend", friendships_path(:friend_id => user ), :method => :post  %></td>
         </tr>
       <% end%>
