@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'httparty', '~> 0.18.1'
 
-gem 'nokogiri', '~> 1.10', '>= 1.10.10'
+gem 'nokogiri', '~> 1.11'
 
 
 
